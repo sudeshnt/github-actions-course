@@ -1,0 +1,24 @@
+name: 01 - Building Blocks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  echo-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo "Hello, world!"
+
+  echo-goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failed Step
+        run: | # this vertical bar is necessary to write a multi-line script
+          echo "I will fail"
+          exit 1
+
+      - name: Say Goodbye
+        run: echo "Goodbye, world!"
