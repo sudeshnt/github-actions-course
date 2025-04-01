@@ -6,12 +6,26 @@ on:
       - main
 
 jobs:
-  ubuntu-echo:
+  ubuntu-runner:
     runs-on: ubuntu-latest
     steps:
       - name: Show OS
         run: |
           echo "This job is running on $RUNNER_OS"
-          echo "Runner ID: $RUNNER_ID"
           echo "Runner Name: $RUNNER_NAME"
-          echo "Runner Version: $RUNNER_VERSION"
+
+  macos-runner:
+    runs-on: macos-latest
+    steps:
+      - name: Show OS
+        run: |
+          echo "This job is running on $RUNNER_OS"
+          echo "Runner Name: $RUNNER_NAME"
+
+  windows-runner:
+    runs-on: windows-latest
+    steps:
+      - name: Show OS
+        run: |
+          echo "This job is running on $RUNNER_OS"
+          echo "Runner Name: $RUNNER_NAME"
