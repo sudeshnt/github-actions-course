@@ -26,6 +26,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Show OS
+        shell: bash # for windows has to instruct the action to run the commands on a bash shell
         run: |
           echo "This job is running on $RUNNER_OS"
           echo "Runner Name: $RUNNER_NAME"
