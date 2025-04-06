@@ -15,6 +15,7 @@ jobs:
           node-version: "20.x"
 
       - name: Install dependencies
+        working-directory: 04-using-actions/react-app # this is similar to `cd 04-using-actions/react-app`
         run: npm install
 
       # - name: Run tests
