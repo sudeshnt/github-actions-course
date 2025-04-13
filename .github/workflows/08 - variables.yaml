@@ -1,0 +1,24 @@
+name: 08 - Variables
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  WORKFLOW_VAR: "I am a workflow env variable"
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "I am a job env variable"
+    steps:
+      - name: Print ENV Variables
+        env:
+          STEP_VAR: "I am a step env variable"
+          step_var2: "I am another step env variable" # the ENV variables doesn't have to always be upper case
+        run: |
+          echo "Step env var: ${{ env.STEP_VAR }}"
+          echo "Step env var 2: ${{ env.step_var2 }}"
+          echo "Job env var: ${{ env.JOB_VAR }}"
+          echo "Workflow env var: ${{ env.WORKFLOW_VAR }}"
