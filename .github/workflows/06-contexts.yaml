@@ -23,7 +23,3 @@ jobs:
       - name: Retrieve Variables
         run: |
           echo "Custom variable value: ${{ vars.CUSTOM_VAR }}"
-          echo "Repository: ${{ vars.REPO }}"
-          echo "Actor: ${{ vars.ACTOR }}"
-          echo "Event name: ${{ vars.EVENT_NAME }}"
-          echo "Workflow: ${{ vars.WORKFLOW }}"
