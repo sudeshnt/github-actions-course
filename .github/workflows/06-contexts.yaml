@@ -48,3 +48,13 @@ jobs:
           echo "MY_JOB_VAR: ${{ env.MY_JOB_VAR }}"
           echo "MY_STEP_VAR: ${{ env.MY_STEP_VAR }}"
           echo "MY_OVERWRITTEN_VAR: ${{ env.MY_OVERWRITTEN_VAR }}"
+
+  echo-data-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display other job variables
+        run: |
+          echo "MY_WORKFLOW_VAR: ${{ vars.MY_WORKFLOW_VAR }}"
+          echo "MY_JOB_VAR: ${{ vars.MY_JOB_VAR }}"
+          echo "MY_STEP_VAR: ${{ vars.MY_STEP_VAR }}"
+          echo "MY_OVERWRITTEN_VAR: ${{ vars.MY_OVERWRITTEN_VAR }}"
