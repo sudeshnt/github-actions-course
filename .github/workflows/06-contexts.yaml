@@ -10,8 +10,15 @@ on:
         type: boolean
         default: false
 
+env:
+  MY_WORKFLOW_VAR: "My workflow variable"
+  MY_OVERWRITTEN_VAR: "This is the overwritten value from the workflow"
+
 jobs:
   echo-data:
+    env:
+      MY_JOB_VAR: "My job variable"
+      MY_OVERWRITTEN_VAR: "This is the overwritten value from the job"
     runs-on: ubuntu-latest
     steps:
       - name: Display information
@@ -31,3 +38,13 @@ jobs:
       - name: Retrieve Variables
         run: |
           echo "Custom variable value: ${{ vars.CUSTOM_VAR }}"
+
+      - name: Display ENV variables
+        env:
+          MY_STEP_VAR: "My step variable"
+          MY_OVERWRITTEN_VAR: "This is the overwritten value from the step"
+        run: |
+          echo "MY_WORKFLOW_VAR: ${{ env.MY_WORKFLOW_VAR }}"
+          echo "MY_JOB_VAR: ${{ env.MY_JOB_VAR }}"
+          echo "MY_STEP_VAR: ${{ env.MY_STEP_VAR }}"
+          echo "MY_OVERWRITTEN_VAR: ${{ env.MY_OVERWRITTEN_VAR }}"
