@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "[debug] Print start-up information"
-        if: ${{ inputs.debug }}
+        if: inputs.debug
         run: |
           echo "Debug is enabled"
           echo "Runner: ${{ runner.name }}"
@@ -26,7 +26,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: "[debug] Print when triggered from main"
-        if: ${{ inputs.debug }} && ${{ github.ref == 'refs/heads/main' }}
+        if: inputs.debug && github.ref == 'refs/heads/main'
         run: |
           echo "This workflow was triggered from the main branch"
 
