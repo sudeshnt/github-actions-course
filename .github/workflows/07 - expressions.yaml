@@ -5,7 +5,6 @@ env:
   MY_VAR_WITH_DEFAULT: ${{ vars.MY_VAR || 'default_value' }}
 
 on:
-  push:
   workflow_dispatch:
     inputs:
       debug:
