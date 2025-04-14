@@ -6,6 +6,7 @@ on:
 
 env:
   WORKFLOW_VAR: "I am a workflow env variable"
+  OVERWRITTEN_VAR: ${{ vars.OVERWRITTEN_VAR || 'default overwritten var' }}
 
 jobs:
   echo:
@@ -22,3 +23,28 @@ jobs:
           echo "Step env var 2: ${{ env.step_var2 }}"
           echo "Job env var: ${{ env.JOB_VAR }}"
           echo "Workflow env var: ${{ env.WORKFLOW_VAR }}"
+
+  echo-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print repository Variables
+        run: |
+          echo "Repository var: ${{ vars.CUSTOM_REPO_VAR }}"
+
+  echo-prod:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Print production Variables
+        run: |
+          echo "Target var: ${{ vars.TARGET_VAR }}"
+          echo "Overwritten var: ${{ env.OVERWRITTEN_VAR }}"
+
+  echo-dev:
+    runs-on: ubuntu-latest
+    environment: develop
+    steps:
+      - name: Print develop Variables
+        run: |
+          echo "Target var: ${{ vars.TARGET_VAR }}"
+          echo "Overwritten var: ${{ env.OVERWRITTEN_VAR }}"
