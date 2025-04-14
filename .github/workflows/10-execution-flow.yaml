@@ -8,6 +8,10 @@ on:
         description: "Whether the unit tests will pass or not"
         default: true
 
+defaults:
+  run:
+    working-directory: 04-using-actions/react-app
+
 jobs:
   lint-build:
     runs-on: ubuntu-latest
