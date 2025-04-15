@@ -46,6 +46,7 @@ jobs:
 
       - name: Print outputs
         run: |
+          echo "build-status: ${{ needs.build.outputs.build-status }}"
           echo "output1: ${{ needs.build.outputs.output1 }}"
           echo "output2: ${{ needs.build.outputs.output2 }}"
           echo "mistake: ${{ needs.build.outputs.mistake }}"
