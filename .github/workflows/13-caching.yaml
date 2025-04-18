@@ -76,10 +76,6 @@ jobs:
           path: 13-caching/react-app/node_modules
           key: ${{ needs.install-dependencies.outputs.deps-cache-key }}
 
-      - name: Install dependencies
-        if: needs.install-dependencies.outputs.deps-cache-key.cache-hit != 'true'
-        run: npm ci
-
       - name: Format
         run: npm run format
 
@@ -107,10 +103,6 @@ jobs:
         with:
           path: 13-caching/react-app/node_modules
           key: ${{ needs.install-dependencies.outputs.deps-cache-key }}
-
-      - name: Install dependencies
-        if: needs.install-dependencies.outputs.deps-cache-key.cache-hit != 'true'
-        run: npm ci
 
       - name: Build
         run: npm run build
