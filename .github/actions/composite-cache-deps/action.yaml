@@ -5,17 +5,11 @@ inputs:
   node-version:
     description: "Node.js version"
     default: "20.x"
-    required: true
   working-directory:
     description: "Working directory"
     default: "."
-    required: false
   target-env:
     description: '"dev" or "prod", controls whether the dev dependencies are installed'
-    type: choice
-    options:
-      - dev
-      - prod
     default: "dev"
 
 runs:
