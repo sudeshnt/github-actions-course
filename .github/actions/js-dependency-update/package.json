@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@actions/core": "1.11.1",
-    "@actions/exec": "1.1.1", // provide utilities to execute command line scripts
-    "@actions/github": "6.0.0" // provide a lot of functionality to interact with github api & get access to a lot of information from contexts within our action
+    "@actions/exec": "1.1.1",
+    "@actions/github": "6.0.0"
   }
 }
