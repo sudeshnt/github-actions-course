@@ -1,5 +1,5 @@
-name: Cache Note and NPM Dependencies
-description: This action allows to cache both Node and NPM dependencies based on the package-lock.json file
+name: Cache NPM Dependencies
+description: This action allows to cache NPM dependencies based on the package-lock.json file
 
 inputs:
   node-version:
