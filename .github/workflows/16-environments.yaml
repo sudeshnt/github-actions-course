@@ -6,7 +6,7 @@ on:
       target-environment:
         type: environment
         required: true
-        default: "dev"
+        default: "develop"
 
 jobs:
   echo:
