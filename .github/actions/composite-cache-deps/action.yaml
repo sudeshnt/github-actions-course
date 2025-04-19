@@ -12,8 +12,11 @@ inputs:
     required: false
   target-env:
     description: '"dev" or "prod", controls whether the dev dependencies are installed'
+    type: choice
+    options:
+      - dev
+      - prod
     default: "dev"
-    required: false
 
 runs:
   using: composite
