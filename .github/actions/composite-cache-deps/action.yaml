@@ -10,6 +10,10 @@ inputs:
     description: "Working directory"
     default: "."
     required: false
+  target-env:
+    description: '"dev" or "prod", controls whether the dev dependencies are installed'
+    default: "dev"
+    required: false
 
 runs:
   using: composite
@@ -26,8 +30,8 @@ runs:
         path: ${{ inputs.working-directory }}/node_modules
         key: node-modules-${{ hashFiles(format('{0}/{1}', inputs.working-directory, 'package-lock.json')) }}
 
-    - name: Install dependencies
+    - name: Install with dev dependencies
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
-      run: npm ci
+      run: ${{ inputs.target-env == 'dev' && 'npm ci' || 'npm ci --omit=dev' }}
       shell: bash # when defining custom actions, we need to specify the shell, but not when defining workflows
       working-directory: ${{ inputs.working-directory }}
