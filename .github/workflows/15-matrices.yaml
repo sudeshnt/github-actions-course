@@ -5,7 +5,7 @@ on:
 
 jobs:
   backward-compatibility:
-    name: Backward compatibility ${{ matrix.os }}-${{ matrix.node-version }}
+    name: ${{ matrix.os }}-${{ matrix.node-version }}
     strategy:
       fail-fast: false # default value is true: if one failed, all the subsequent jobs will be cancelled
       matrix:
