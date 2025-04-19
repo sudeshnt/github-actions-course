@@ -21,6 +21,7 @@ jobs:
         with: # inputs for the custom action
           node-version: 20.x
           working-directory: ${{ env.working-directory }}
+
       - name: Test
         run: npm test
 
