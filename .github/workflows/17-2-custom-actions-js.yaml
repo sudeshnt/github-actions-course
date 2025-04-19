@@ -13,9 +13,10 @@ on:
       working-directory:
         description: "The working directory of the project to check for dependency updates"
         default: 17-custom-actions/react-app
-      gh-token:
-        description: "The GitHub token to use for authentication"
-        required: true
+
+permissions: # these permissions make sure the secrets.GITHUB_TOKEN have the write access to both contents and pull-requests
+  contents: write
+  pull-requests: write
 
 jobs:
   dependency-update:
@@ -30,4 +31,4 @@ jobs:
           base-branch: ${{ inputs.base-branch }}
           target-branch: ${{ inputs.target-branch }}
           working-directory: ${{ inputs.working-directory }}
-          gh-token: ${{ inputs.gh-token }}
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
