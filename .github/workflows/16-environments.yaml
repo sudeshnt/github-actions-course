@@ -2,18 +2,22 @@ name: 16 - Working with environments
 
 on:
   workflow_dispatch:
-    inputs:
-      target-environment:
-        type: environment
-        required: true
-        default: "develop"
 
 jobs:
-  echo:
+  echo-develop:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.target-environment }}
+    environment: develop
     env:
       BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
     steps:
-      - name: Echo environment variable
-        run: echo "The environment variable is ${{ env.BASE_URL }}"
+      - name: Echo develop env variable
+        run: echo "The develop env variable is ${{ env.BASE_URL }}"
+
+  echo-prod:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
+    steps:
+      - name: Echo production env variable
+        run: echo "The production env variable is ${{ env.BASE_URL }}"
