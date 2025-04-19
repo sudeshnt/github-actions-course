@@ -13,7 +13,7 @@ inputs:
     default: "dev"
 
 runs:
-  using: composite
+  using: composite # composite actions use the composite action runner
   steps:
     - name: Setup NodeJS version ${{ inputs.node-version }}
       uses: actions/setup-node@v4
