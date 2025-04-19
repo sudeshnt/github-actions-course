@@ -71,7 +71,7 @@ async function run() {
     `[js-dependency-update] - Working directory is ${workingDirectory}`
   );
 
-  await exec.exec("npm update", { ...commonExecOptions });
+  await exec.exec("npm update", [], { ...commonExecOptions });
 
   const gitStatus = await exec.getExecOutput("git status -s package*.json", {
     ...commonExecOptions,
