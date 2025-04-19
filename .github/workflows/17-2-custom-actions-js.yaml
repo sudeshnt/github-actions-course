@@ -1,8 +1,21 @@
 name: 17.2 Custom Actions - JS
-run-name: 17.2 Custom Actions - JS
+run-name: 17.2 Custom Actions - JS | BB - ${{ inputs.base-branch }} TB - ${{ inputs.target-branch }} WD - ${{ inputs.working-directory }}
 
 on:
   workflow_dispatch:
+    inputs:
+      base-branch:
+        description: "The base branch to compare against"
+        default: main
+      target-branch:
+        description: "The target branch to update"
+        default: update-dependencies
+      working-directory:
+        description: "The working directory of the project to check for dependency updates"
+        default: 17-custom-actions/react-app
+      gh-token:
+        description: "The GitHub token to use for authentication"
+        required: true
 
 jobs:
   dependency-update:
@@ -13,3 +26,8 @@ jobs:
 
       - name: Check for dependency updates
         uses: ./.github/actions/js-dependency-update
+        with:
+          base-branch: ${{ inputs.base-branch }}
+          target-branch: ${{ inputs.target-branch }}
+          working-directory: ${{ inputs.working-directory }}
+          gh-token: ${{ inputs.gh-token }}
