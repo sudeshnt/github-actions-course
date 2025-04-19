@@ -4,18 +4,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  echo-develop:
+  deploy-develop:
     runs-on: ubuntu-latest
     environment: develop
     env:
       BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
     steps:
-      - name: Echo develop env variable
-        run: echo "The develop env variable is ${{ env.BASE_URL }}"
+      - name: Deploy develop
+        run: echo "deploying to ${{ env.BASE_URL }}"
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    environment: develop
+    needs: deploy-develop
+    steps:
+      - name: Run e2e tests
+        run: echo "Running e2e tests"
 
   echo-prod:
     runs-on: ubuntu-latest
     environment: production
+    needs: e2e-tests
     env:
       BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
     steps:
