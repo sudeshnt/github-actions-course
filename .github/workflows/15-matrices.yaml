@@ -40,3 +40,15 @@ jobs:
 
       - name: Upload test results
         run: echo "Uploading test results"
+
+  include-example:
+    name: ${{ matrix.shape }}-${{ matrix.color }}-${{ matrix.size }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shape: [circle, square]
+        color: [red, green]
+        size: [small, large]
+        include:
+          - shape: circle
+            color: blue
