@@ -1,0 +1,19 @@
+name: 16 - Working with environments
+
+on:
+  workflow_dispatch:
+    inputs:
+      target-environment:
+        type: environment
+        required: true
+        default: "dev"
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target-environment }}
+    env:
+      BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
+    steps:
+      - name: Echo environment variable
+        run: echo "The environment variable is ${{ env.BASE_URL }}"
