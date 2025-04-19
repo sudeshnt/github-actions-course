@@ -27,16 +27,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Fail is experimental
-        if: ${{ matrix.tag == 'experiment' }}
-        run: |
-          echo "This is an experimental version"
-          exit 1
-
       - name: Perform some tests
         run: |
           echo "Running tests for OS ${{ matrix.os }} and Node.js: ${{ matrix.node-version }}"
-          sleep 10
 
       - name: Upload test results
         run: echo "Uploading test results"
