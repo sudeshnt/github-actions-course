@@ -13,6 +13,9 @@ on:
       working-directory:
         description: "The working directory of the project to check for dependency updates"
         default: 17-custom-actions/react-app
+      debug:
+        type: boolean
+        default: false
 
 permissions: # these permissions make sure the secrets.GITHUB_TOKEN have the write access to both contents and pull-requests
   contents: write
@@ -26,9 +29,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check for dependency updates
+        id: update-deps
         uses: ./.github/actions/js-dependency-update
         with:
           base-branch: ${{ inputs.base-branch }}
           target-branch: ${{ inputs.target-branch }}
           working-directory: ${{ inputs.working-directory }}
           gh-token: ${{ secrets.GITHUB_TOKEN }}
+          debug: ${{ inputs.debug }}
+
+      - name: Print custom action output
+        run: |
+          echo "Updates available: ${{ steps.update-deps.outputs.updates-available }}"
