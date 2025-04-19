@@ -21,12 +21,24 @@ jobs:
       - name: Run e2e tests
         run: echo "Running e2e tests"
 
-  echo-prod:
+  echo-prod-backend:
+    name: Deploy production backend
     runs-on: ubuntu-latest
     environment: production
     needs: e2e-tests
     env:
       BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
     steps:
-      - name: Echo production env variable
-        run: echo "The production env variable is ${{ env.BASE_URL }}"
+      - name: Echo production base url
+        run: echo "The production base url is ${{ env.BASE_URL }}"
+
+  echo-prod-frontend:
+    name: Deploy production frontend
+    runs-on: ubuntu-latest
+    environment: production
+    needs: e2e-tests
+    env:
+      BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
+    steps:
+      - name: Echo production base url
+        run: echo "The production base url is ${{ env.BASE_URL }}"
