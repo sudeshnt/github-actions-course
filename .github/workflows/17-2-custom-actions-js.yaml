@@ -33,7 +33,7 @@ jobs:
         uses: ./.github/actions/js-dependency-update
         with:
           base-branch: ${{ inputs.base-branch }}
-          target-branch: ${{ inputs.target-branch }}
+          head-branch: ${{ inputs.target-branch }}
           working-directory: ${{ inputs.working-directory }}
           gh-token: ${{ secrets.GITHUB_TOKEN }}
           debug: ${{ inputs.debug }}
