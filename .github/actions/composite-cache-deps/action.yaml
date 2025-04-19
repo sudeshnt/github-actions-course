@@ -28,7 +28,7 @@ runs:
       uses: actions/cache@v4
       with:
         path: ${{ inputs.working-directory }}/node_modules
-        key: node-modules-${{ hashFiles(format('{0}/{1}', inputs.working-directory, 'package-lock.json')) }}
+        key: node-modules-${{ inputs.target-env }}-${{ hashFiles(format('{0}/{1}', inputs.working-directory, 'package-lock.json')) }}
 
     - name: Install with dev dependencies
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
