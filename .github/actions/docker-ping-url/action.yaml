@@ -2,13 +2,13 @@ name: Ping URL
 description: Ping URL until maximum trials have exceeded. If result is not 200 until then, fails the action
 
 input:
-  url:
+  url: # these inputs are passed to the Dockerfile as - `INPUT_URL`
     description: "URL to ping"
     required: true
-  max-trials:
+  max-trials: # INPUT_MAX_TRIALS
     description: "Maximum number of tries to ping the URL"
     default: 10
-  delay:
+  delay: # INPUT_DELAY
     description: "Delay in seconds between trials"
     default: 5
 
