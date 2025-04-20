@@ -23,6 +23,10 @@ inputs:
     type: boolean
     default: false
 
+outputs:
+  updates-available:
+    description: Whether there are updates available to the NPM dependencies
+
 runs:
   using: "node20"
   main: index.js
