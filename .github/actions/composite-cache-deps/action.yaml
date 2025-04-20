@@ -12,6 +12,14 @@ inputs:
     description: '"dev" or "prod", controls whether the dev dependencies are installed'
     default: "dev"
 
+outputs:
+  installed-deps:
+    description: "Whether the dependencies were installed"
+    value: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+  random-output:
+    description: "Random output"
+    value: ${{ steps.random-output.outputs.random }}
+
 runs:
   using: composite # composite actions use the composite action runner
   steps:
@@ -32,3 +40,8 @@ runs:
       run: ${{ inputs.target-env == 'dev' && 'npm ci' || 'npm ci --omit=dev' }}
       shell: bash # when defining custom actions, we need to specify the shell, but not when defining workflows
       working-directory: ${{ inputs.working-directory }}
+
+    - name: Random output
+      shell: bash
+      id: random-output
+      run: echo "random=123" >> "$GITHUB_OUTPUT"
