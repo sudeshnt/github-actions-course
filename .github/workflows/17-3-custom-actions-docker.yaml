@@ -7,6 +7,12 @@ on:
       url:
         description: "The URL to ping"
         default: https://www.google.com
+      max-trials:
+        description: Maximum trials until action fails
+        default: "10"
+      delay:
+        description: Delay in seconds between trials
+        default: "5"
 
 jobs:
   ping-url:
@@ -20,3 +26,5 @@ jobs:
         uses: ./.github/actions/docker-ping-url
         with:
           url: ${{ inputs.url }}
+          max-trials: ${{ inputs.max-trials }}
+          delay: ${{ inputs.delay }}

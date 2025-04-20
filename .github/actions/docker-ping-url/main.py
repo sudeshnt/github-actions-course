@@ -21,9 +21,9 @@ def ping_url(url, max_trials, delay):
   return False
 
 def run():
-  website_url: os.getenv("INPUT_URL")
-  max_trials: os.getenv("INPUT_MAX_TRIALS")
-  delay: os.getenv("INPUT_DELAY")
+  website_url = os.getenv("INPUT_URL")
+  max_trials = int(os.getenv("INPUT_MAX_TRIALS"))
+  delay = int(os.getenv("INPUT_DELAY"))
 
   website_reachable = ping_url(website_url, max_trials, delay)
 
@@ -33,4 +33,4 @@ def run():
   print(f"Website {website_url} is reachable")
 
 if __name__ == "__main__":
-    run()
+  run()
