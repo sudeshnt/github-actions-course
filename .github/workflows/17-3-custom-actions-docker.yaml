@@ -7,7 +7,7 @@ on:
       url:
         description: "The URL to ping"
         default: https://www.google.com
-      max-trials:
+      max_trials:
         description: Maximum trials until action fails
         default: "10"
       delay:

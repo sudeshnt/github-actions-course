@@ -5,7 +5,7 @@ input:
   url: # these inputs are passed to the Dockerfile as - `INPUT_URL`
     description: "URL to ping"
     required: true
-  max-trials: # INPUT_MAX_TRIALS
+  max_trials: # INPUT_MAX_TRIALS
     description: "Maximum number of tries to ping the URL"
     default: "10"
   delay: # INPUT_DELAY
