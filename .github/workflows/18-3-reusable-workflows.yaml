@@ -10,7 +10,7 @@ jobs:
       target-directory: dir
 
   e2e-tests:
-    uses: sudeshnt/github-actions-reusable-workflows/.github/workflows/e2e.yaml@main
+    uses: sudeshnt/github-actions-reusable-workflow/.github/workflows/e2e.yaml@main
     secrets:
       github-token:
 
