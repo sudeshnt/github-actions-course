@@ -11,8 +11,9 @@ jobs:
 
   e2e-tests:
     uses: sudeshnt/github-actions-reusable-workflow/.github/workflows/e2e.yaml@main
+    needs: deploy
     secrets:
-      github-token:
+      access-token: ${{ secrets.GH_TOKEN }}
 
   print-outputs:
     runs-on: ubuntu-latest
