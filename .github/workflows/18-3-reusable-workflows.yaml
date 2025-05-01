@@ -10,10 +10,7 @@ jobs:
       target-directory: dir
 
   e2e-tests:
-    uses:
-      sudeshnt/github-actions-reusable-workflows/.github/workflows/e2e.yaml@main
-      #<owner>/<repository>/.github/workflows/<workflow-name>@<version>
-      # version can be a branch, tag, or a commit SHA
+    uses: ./.github/workflows/e2e.yaml
     secrets:
       github-token:
 
