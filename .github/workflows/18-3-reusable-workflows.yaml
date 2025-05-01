@@ -13,7 +13,7 @@ jobs:
     uses: sudeshnt/github-actions-reusable-workflow/.github/workflows/e2e.yaml@main
     needs: deploy
     secrets:
-      access-token: ${{ secrets.GH_TOKEN }}
+      access-token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
 
   print-outputs:
     runs-on: ubuntu-latest
