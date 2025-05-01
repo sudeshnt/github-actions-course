@@ -1,0 +1,16 @@
+name: Safe PR Title Check
+description: Safely checks the title of a PR
+
+inputs:
+  pr-title:
+    description: The PR Title
+    required: true
+
+outputs:
+  is-safe:
+    description: Whether the PR title is safe
+    required: true
+
+runs:
+  using: "node16"
+  main: "index.js"
