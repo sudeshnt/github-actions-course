@@ -37,4 +37,4 @@ jobs:
         id: deploy
         run: |
           echo "Deploying using directory ..."
-          echo "url=https://github.com/actions/example-deploy-action" >> "$GITHUB_OUTPUT"
+          echo "deploy-url=https://github.com/actions/example-deploy-action" >> "$GITHUB_OUTPUT"
