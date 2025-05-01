@@ -40,4 +40,7 @@ jobs:
           if [[ $TITLE =~ ^feat ]]; then
             echo "PR is a feature PR"
             exit 0
+          else
+            echo "PR is not a feature PR"
+            exit 1
           fi
